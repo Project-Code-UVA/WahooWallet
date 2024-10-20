@@ -2,7 +2,7 @@
 
 ## Welcome to WahooWallet!
 
-- **Explore the resources below to get familiar with the project. Items with a * are highly recommended.**
+- **Explore the resources below to familiarize yourself with the project. Items with a * are highly recommended.**
 
 WahooWallet will be a web application to help students manage and track their finances, improving budgeting and financial literacy.
 
@@ -25,8 +25,8 @@ WahooWallet will be a web application to help students manage and track their fi
 
 
 
-
--     pip install django
+  -     pip install django
+- [PostgreSQL](https://www.postgresql.org/download/) and create a database for WahooWallet:
 
 ---
 
@@ -34,7 +34,7 @@ WahooWallet will be a web application to help students manage and track their fi
 
 ### About Our Project
 
-- WahooWallet is designed to improve financial literacy through personalized budgeting tools and resources. Inspired by the simplicity of modern personal finance apps.
+- WahooWallet is designed to improve financial literacy through personalized budgeting tools and resources.
   
 
 ---
@@ -52,16 +52,13 @@ WahooWallet will be a web application to help students manage and track their fi
 
 ### **Backend: Python**
 
-- The backend is built using Python for API services, handling data, and integrating with PostgreSQL. Python can be run easily using VS Code.
 - [How to Use Django](https://www.djangoproject.com/start/): A tutorial on Django.
 
 ---
 
 ### **PostgreSQL**
-
-- Install [PostgreSQL](https://www.postgresql.org/download/) and create a database for WahooWallet:
   
-  - [How to Use PostgreSQL](https://www.postgresqltutorial.com/index.html): A tutorial on PostgreSQL.
+- [How to Use PostgreSQL](https://www.postgresqltutorial.com/index.html): A tutorial on PostgreSQL.
 
 ---
 
