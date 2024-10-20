@@ -54,6 +54,7 @@ WahooWallet will be a web application to help students manage and track their fi
 
 
 -     pip install django
+- [How to Use Django](https://www.djangoproject.com/start/): A tutorial on Django.
 
 ---
 
@@ -61,7 +62,7 @@ WahooWallet will be a web application to help students manage and track their fi
 
 - Install [PostgreSQL](https://www.postgresql.org/download/) and create a database for WahooWallet:
   
-  - [How to use PostgreSQL](https://www.postgresqltutorial.com/index.html): A tutorial on PostgreSQL.
+  - [How to Use PostgreSQL](https://www.postgresqltutorial.com/index.html): A tutorial on PostgreSQL.
 
 ---
 
