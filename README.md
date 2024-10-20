@@ -21,6 +21,12 @@ WahooWallet will be a web application to help students manage and track their fi
 - [Visual Studio Code](https://code.visualstudio.com/): This is the code editor we’ll use. It's lightweight, popular, and supports extensions for Python and React.
   
 - [Node.js](https://nodejs.org/en): We'll use this to run the React project. Please install the LTS version.
+- [Django](https://www.python.org/downloads/): Install Python from python.org. Once Python is installed, run the following to install Django.
+
+
+
+
+-     pip install django
 
 ---
 
@@ -47,13 +53,6 @@ WahooWallet will be a web application to help students manage and track their fi
 ### **Backend: Python**
 
 - The backend is built using Python for API services, handling data, and integrating with PostgreSQL. Python can be run easily using VS Code.
-
-- [Django](https://www.python.org/downloads/): Install Python from python.org. Once Python is installed, run the following to install Django.
-
-
-
-
--     pip install django
 - [How to Use Django](https://www.djangoproject.com/start/): A tutorial on Django.
 
 ---
