@@ -1,0 +1,144 @@
+/* Extend page entire viewport */
+
+body {
+    margin: 0px;
+    background-color: #6D85FF;
+}
+
+/* Root container */
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    background-color: #445DFD;
+}
+
+.titleSegment {
+    margin-left: 39px;
+}
+
+.wahooTitle {
+    color: #DEDCFF;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* Main content */
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+/* Blurb section */
+.blurpContainer {
+    display: flex;
+    justify-content: center;
+    width: 54%;
+    height: 100%;
+    color: white;
+}
+
+.blurbText {
+    margin-top: 25%;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+/* Login section */
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    flex: 1;
+    background-color: #445DFD;
+    padding-top: 8em;
+    align-items: center;
+}
+
+.loginTitle {
+    width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.logIntoWahooWalletText {
+    font-weight: 700;
+    font-size: 32px;
+    color: white;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+/* Input section */
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 400px;
+}
+
+.loginTypeText {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24.42px;
+    text-align: left;
+    color: #DEDCFF;
+}
+
+.loginInputBox {
+    width: 380px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #6D85FF;
+    color: #DEDCFF;
+}
+
+/* Signup section */
+.loginSignupSection {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loginSignupButton {
+    border-radius: 20px;
+    border: none;
+    background-color: #494EDA;
+    font-size: 20px;
+    height: 42px;
+    width: 90px;
+    font-weight: 500;
+    color: #DEDCFF;
+    cursor: pointer;
+}
+.loginSignupButton:hover {
+    opacity: 0.7;
+}
+.loginSignupButton:active {
+    opacity: 0.5;
+}
+
+.dontHaveAccountText {
+    color: #DEDCFF;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 700; /* Corrected font-weight (removed px) */
+}
