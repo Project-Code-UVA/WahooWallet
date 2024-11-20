@@ -12,3 +12,4 @@ source venv/bin/activate --If you have Mac or Linux
 
 django-admin startproject backend .
 
+Note: the env should be held locally instead of in the repo, so you will have to run that everytime.
