@@ -223,20 +223,19 @@ body {
     opacity: 1;
 }
 
-/* Back button */
-.backButton {
-    background: none;
-    border: none;
-    color: white;
+/* Arrow Button Styling */
+.arrow {
     font-size: 18px;
+    color: white;
+    background-color:#445DFD;
+    border: none;
     cursor: pointer;
-    margin-bottom: 20px;
+    transition: transform 0.2s ease;
 }
 
-.backButton:hover {
-    text-decoration: underline;
+.arrow:hover {
+    transform: scale(1.2);
 }
-
 /* Account details section */
 .accountDetails {
     font-size: 25px;
@@ -266,4 +265,93 @@ body {
     font-size: 25px;
     font-weight: 400;
     color: white;
+}
+
+/* Transactions section */
+
+.transactionContainer {
+    flex: 1; /* Take up the remaining space next to the sidebar */
+    align-items: center;
+    background-color: #445DFD;
+    padding: 50px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.transactionsHeader {
+    display: flex;
+    justify-content: space-between; /* Space out the elements */
+    align-items: center; /* Align items vertically in the center */
+    border-bottom: 1px solid #FFEDED80;
+    margin-bottom: 10px; /* Adjust spacing below the header */
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.transactionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transactionRow {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #445DFD;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    overflow-y: auto;
+    border-bottom: 1px solid #FFEDED80;
+}
+
+.transactionDescription {
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+
+.transactionAmount {
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+}
+
+/* Extended Transactions */
+/* Left section: Description and Date */
+.transactionLeft {
+    display: flex;
+    flex-direction: column;
+}
+
+.transactionDate {
+    font-size: 14px;
+    color: white;
+    font-weight: 400;
+    margin-top: auto;
+}
+
+/* Right section: Category and Amount */
+.transactionRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align content to the right */
+}
+
+.transactionCategory {
+    margin-bottom: 5px;
+}
+
+.categoryDropdown {
+    background-color: #445DFD;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
 }
