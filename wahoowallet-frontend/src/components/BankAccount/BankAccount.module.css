@@ -1,0 +1,269 @@
+/* Extend page entire viewport */
+
+body {
+    font-family: "Helvetica Neue";
+    margin: 0px;
+    background-color: #6D85FF;
+}
+
+/* Root container */
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10%;
+    width: 100%;
+    background-color: #445DFD;
+}
+
+.titleSegment {
+    margin-left: 39px;
+}
+
+.wahooTitle {
+    color: #DEDCFF;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.signOut {
+    border: none;
+    border-radius: 10px;
+    background-color: #6D85FF;
+    height: 30%;
+    flex-shrink: 0;
+    margin-right: 19px;
+
+    
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: white;
+    cursor: pointer;
+}
+
+.signOut:hover {
+    background-color: #5b75db;
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Main content */
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: flex-start;
+    background-color: #445DFD;
+    border-top: 5px solid #6D85FF;
+}
+
+/* Sidebar */
+.sidebarContainer {
+    width: 15%;
+    height: 100%;
+    background-color: #445DFD;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    border-right: 5px solid #6D85FF;
+}    
+
+.greetings {
+    margin-bottom: 15px;
+    margin-left: 19px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #DEDCFF;
+}
+
+.sidebarTitle:first-of-type {
+    margin-top: 20px; /* Add extra spacing for the first button */
+}
+
+.sidebarTitle {
+    width: 90%;
+    height: 3%;
+    flex-shrink: 0;
+    margin-left: 19px;
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #6D85FF;
+
+    
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.sidebarTitle:hover {
+    background-color: #5b75db; /* Slightly darker hover effect */
+    transform: scale(1.02); /* Subtle zoom effect */
+}
+
+.active {
+    background-color: #FF8C28;
+}
+
+/* Bank Account */
+.bankAccountContainer {
+    flex: 1; /* Take up the remaining space next to the sidebar */
+    align-items: center;
+    background-color: #445DFD;
+    padding: 50px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    flex-direction: column;
+}
+
+.bankAccountHeader {
+    display: flex; /* Align items horizontally */
+    justify-content: space-between; /* Push the title and balance to opposite sides */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 20px; /* Add space below the header */
+    border-bottom: 1px solid #FFEDED80; /* Add a divider line */
+    padding-bottom: 10px; /* Add spacing between the text and the divider */
+}
+
+.bankAccountTitle {
+    color: #FFF;
+    
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+}
+
+.totalBalanceTitle {
+    color: #FFF;
+    
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: right;
+}
+
+/* Bank account list */
+.bankAccountList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.accountRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FFEDED80;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
+}
+
+.accountRow:hover {
+    transform: scale(1.02); /* Subtle zoom effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accountName {
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+
+.accountBalance {
+    text-align: right;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+}
+
+.balanceLabel {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* Add account button */
+.addAccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.plusSign {
+    font-size: 48px;
+    font-weight: 200;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.plusSign:hover {
+    opacity: 1;
+}
+
+/* Back button */
+.backButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.backButton:hover {
+    text-decoration: underline;
+}
+
+/* Account details section */
+.accountDetails {
+    font-size: 25px;
+    padding: 30px;
+    font-weight: 400;
+    color: white;
+}
+
+.accountDetailsSection {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 350;
+    padding-left: 20px;
+    color: white;
+}
+
+.accountTitle {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #FFEDED80;
+}
+
+.accountBalance {
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+}
