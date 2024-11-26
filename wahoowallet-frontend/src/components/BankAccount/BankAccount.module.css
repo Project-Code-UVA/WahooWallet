@@ -68,7 +68,7 @@ body {
 
 /* Sidebar */
 .sidebarContainer {
-    width: 15%;
+    width: 20%;
     height: 100%;
     background-color: #445DFD;
     padding: 20px;
@@ -87,12 +87,12 @@ body {
 }
 
 .sidebarTitle:first-of-type {
-    margin-top: 20px; /* Add extra spacing for the first button */
+    margin-top: 20px;
 }
 
 .sidebarTitle {
     width: 90%;
-    height: 3%;
+    height: 40px;
     flex-shrink: 0;
     margin-left: 19px;
     margin-bottom: 20px;
