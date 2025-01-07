@@ -27,6 +27,7 @@ export default function Sidebar({ name = 'NAME' }) {
           <NavLink to='/ai' className={getActiveButton('ai')}>Ask AI</NavLink>
           <NavLink to='/grubhub' className={getActiveButton('grubhub')}>Grubhub</NavLink>
           <NavLink to='/bank' className={getActiveButton('bank')}>Bank Account</NavLink>
+          <NavLink to='/test' className={getActiveButton('test')}>Test</NavLink>
         </div>
     </div>
   )
