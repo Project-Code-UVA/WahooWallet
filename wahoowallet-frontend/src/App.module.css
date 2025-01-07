@@ -23,4 +23,5 @@ body {
 .outletContent {
   background-color: var(--primary-color);
   width: 100%;
+  overflow-y: scroll;
 }

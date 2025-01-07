@@ -26,7 +26,7 @@ function LoginPage() {
             </div>
             <div className={styles.loginSignupSection}>
               <nav>
-                <NavLink to='/' className={styles.loginSignupButton}>
+                <NavLink to='/bank' className={styles.loginSignupButton}>
                   <button className={styles.loginSignupButton}>Login</button>
                 </NavLink>
                 <p className={styles.dontHaveAccountText}>Don't have an account?</p>

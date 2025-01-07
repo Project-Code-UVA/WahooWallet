@@ -3,17 +3,17 @@
 .header {
   display: flex;
   align-items: center;
-  height: 100px;
-  background-color: #445DFD;
-  min-height: 100px;
+  height: 12%;
+  background-color: var(--primary-color);
+  min-height: 12%;
 }
 
 .titleSegment {
-  margin-left: 39px;
+  margin-left: 30px;
 }
 
 .wahooTitle {
-  color: #DEDCFF;
+  color: var(--heading-color-text);
   margin: 0;
   font-size: 36px;
   font-weight: 700;

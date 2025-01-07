@@ -6,16 +6,14 @@ import { Outlet } from 'react-router';
 
 export default function App() {
   return (
-    <>
-        <div className={style.root}>
-          <Header />
-          <div className={style.pageContent}>
-            <Sidebar />
-            <div className={style.outletContent}>
-              <Outlet />
-            </div>
-          </div>
+    <div className={style.root}>
+      <Header />
+      <div className={style.pageContent}>
+        <Sidebar />
+        <div className={style.outletContent}>
+          <Outlet />
         </div>
-    </>
+      </div>
+    </div>
   )
 }
