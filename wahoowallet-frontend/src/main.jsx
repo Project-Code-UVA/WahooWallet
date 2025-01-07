@@ -15,6 +15,10 @@ import Test from './components/Test.jsx'
 
 // Authorized-only pages
 import BankAccount from './components/BankAccount/BankAccount.jsx';
+import Grubhub from './components/Grubhub/Grubhub.jsx';
+import AI from './components/AI/AI.jsx';
+import Budget from './components/Budget/Budget.jsx';
+import Profile from './components/Profile/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +36,22 @@ const router = createBrowserRouter([
       {
         path: '/bank',
         element: <BankAccount />
+      },
+      {
+        path: '/grubhub',
+        element: <Grubhub />
+      },
+      {
+        path: '/AI',
+        element: <AI />
+      },
+      {
+        path: '/budget',
+        element: <Budget />
+      },
+      {
+        path: '/profile',
+        element: <Profile />
       },
       {
         path: '/test',
