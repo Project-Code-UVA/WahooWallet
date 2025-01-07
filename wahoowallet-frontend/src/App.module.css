@@ -1,1 +1,26 @@
 @import "./vars.css";
+
+/* !! Applies to body globally !! */
+body {
+  margin: 0px;
+  background-color: var(--secondary-color);
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100vh;
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: 100%;
+}
+
+.outletContent {
+  background-color: var(--primary-color);
+  width: 100%;
+}

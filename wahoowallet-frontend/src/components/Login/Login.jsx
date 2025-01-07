@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router';
 import styles from './Login.module.css'; // Import the CSS Module
 
 function LoginPage() {
@@ -24,9 +25,15 @@ function LoginPage() {
               <input className={styles.loginInputBox}></input>
             </div>
             <div className={styles.loginSignupSection}>
-              <button className={styles.loginSignupButton}>Login</button>
-              <p className={styles.dontHaveAccountText}>Don't have an account?</p>
-              <button className={styles.loginSignupButton}>Signup</button>
+              <nav>
+                <NavLink to='/' className={styles.loginSignupButton}>
+                  <button className={styles.loginSignupButton}>Login</button>
+                </NavLink>
+                <p className={styles.dontHaveAccountText}>Don't have an account?</p>
+                <NavLink to='/signup' className={styles.loginSignupButton}>
+                  <button className={styles.loginSignupButton}>Signup</button>
+                </NavLink>
+              </nav>
             </div>
           </div>
         </div>

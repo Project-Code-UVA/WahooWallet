@@ -1,0 +1,20 @@
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #445DFD;
+  min-height: 100px;
+}
+
+.titleSegment {
+  margin-left: 39px;
+}
+
+.wahooTitle {
+  color: #DEDCFF;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
