@@ -1,22 +1,24 @@
-import { useEffect } from "react";
 import { Navigate, useLocation } from "react-router";
+import { useAuth } from "./UserAuth.jsx";
 
 export default function ProtectedRoute({ children }) {
-  // Real auth logic needed once DB is setup
-  const isLoggedIn = true;
+  const { user } = useAuth();
+  const location = useLocation();
 
   /* 
     Fix for trailing forward slashes in pathname breaking react-router (super niche)
     '//', '////', etc, get forced to '/'
     '/url/', '//url', '/url//' are untouched.
   */
-  const location = useLocation();
-  useEffect(() => {
-    const multipleSlashes = location.pathname.match(/^\/{2,}$/);
-    if (multipleSlashes) {
-      window.location.pathname = '/';
-    }
-  }, [location]);
+  const multipleSlashes = location.pathname.match(/^\/{2,}$/);
+  if (multipleSlashes) {
+    window.location.pathname = '/';
+  }
 
-  return isLoggedIn ? children : <Navigate to='/login' />;
+
+  if (!user) {
+    return <Navigate to='/login' />
+  }
+
+  return children;
 }

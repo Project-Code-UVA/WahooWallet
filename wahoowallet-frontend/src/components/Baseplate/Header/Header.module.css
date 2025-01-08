@@ -9,7 +9,10 @@
 }
 
 .titleSegment {
-  margin-left: 30px;
+  padding: 0 30px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .wahooTitle {
@@ -17,4 +20,12 @@
   margin: 0;
   font-size: 36px;
   font-weight: 700;
+}
+
+.signoutButton {
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: var(--color-text);
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
 }

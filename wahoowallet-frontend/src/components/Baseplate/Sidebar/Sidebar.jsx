@@ -1,8 +1,11 @@
 import { NavLink, useLocation } from 'react-router';
 import style from './Sidebar.module.css';
 import PropTypes from 'prop-types';
+import { useAuth } from '../../../auth/UserAuth.jsx';
 
-export default function Sidebar({ name = 'NAME' }) {
+export default function Sidebar() {
+  const { user } = useAuth();
+
   const location = useLocation();
 
   // Gives the active button class depending on pathname
@@ -20,7 +23,7 @@ export default function Sidebar({ name = 'NAME' }) {
 
   return (
     <div className={style.sidebar}>
-        <p className={style.greetings}>Hi, {name}!</p>
+        <p className={style.greetings}>Hi, {user.name}!</p>
         <div className={style.buttons}>
           <NavLink to='/profile' className={getActiveButton('profile')}>User Profile</NavLink>
           <NavLink to='/budget' className={getActiveButton('budget')}>Budget</NavLink>
