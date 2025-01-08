@@ -4,7 +4,7 @@ import { useAuth } from '../../auth/UserAuth.jsx';
 import Header from '../Baseplate/Header/Header.jsx';
 import { useEffect } from 'react';
 
-function LoginPage() {
+export default function Login() {
   const { user, login } = useAuth();
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ function LoginPage() {
                 <p className={styles.loginTypeText}>Username or Email</p>
                 <input id='user' className={styles.loginInputBox}></input>
                 <p className={styles.loginTypeText}>Password</p>
-                <input id='pass' className={styles.loginInputBox}></input>
+                <input id='pass' type='password' className={styles.loginInputBox}></input>
                 <p id='invalidLogin' className={styles.invalidLogin}></p>
             </div>
             <div className={styles.loginSignupSection}>
@@ -66,7 +66,5 @@ function LoginPage() {
           </div>
         </div>
       </div>
-  );
+  )
 }
-
-export default LoginPage;

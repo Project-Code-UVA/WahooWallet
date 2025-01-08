@@ -5,7 +5,6 @@ import { useAuth } from '../../../auth/UserAuth.jsx';
 
 export default function Sidebar() {
   const { user } = useAuth();
-
   const location = useLocation();
 
   // Gives the active button class depending on pathname
@@ -34,8 +33,4 @@ export default function Sidebar() {
         </div>
     </div>
   )
-}
-
-Sidebar.propTypes = {
-  name: PropTypes.string
 }

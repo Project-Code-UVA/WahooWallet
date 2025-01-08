@@ -1,6 +1,5 @@
 import style from './Header.module.css';
 import { useAuth } from '../../../auth/UserAuth';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -20,8 +19,4 @@ export default function Header() {
       </div>
     </div>
   )
-}
-
-Header.propTypes = {
-  loggedIn: PropTypes.bool
 }

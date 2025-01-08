@@ -15,7 +15,6 @@ export default function ProtectedRoute({ children }) {
     window.location.pathname = '/';
   }
 
-
   if (!user) {
     return <Navigate to='/login' />
   }

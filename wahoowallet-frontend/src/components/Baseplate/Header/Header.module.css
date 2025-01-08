@@ -28,4 +28,11 @@
   color: var(--color-text);
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.signoutButton:hover {
+  opacity: 0.6;
+  border-color: var(--color-text);
+  transform: scale(1.02);
 }
