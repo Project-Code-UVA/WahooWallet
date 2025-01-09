@@ -53,7 +53,7 @@
 .messageContainer {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
@@ -74,7 +74,7 @@
   padding-right: 75px;
   border: none;
   border-radius: 20px;
-  background-color: #6D85FF;
+  background-color: var(--secondary-color);
   color: var(--dim-color-text);
   transition: transform 0.3s ease-in-out;
   position: relative;
@@ -89,7 +89,7 @@
 .textLimitText {
   position: absolute;
   display: inline;
-  bottom: 15px;
+  bottom: 16px;
   right: 10px;
   color: var(--dim-color-text);
   margin: 0;
@@ -101,13 +101,17 @@
 }
 
 .sendButton {
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
-  background-color: #494EDA;
+  background-color: var(--dim-primary-color);
   font-size: 20px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-weight: 500;
   color: var(--dim-color-text);
   cursor: pointer;
-  transition: transform 0.15s ease-in-out; 
+}
+
+.sendButton:hover {
+  color: var(--color-text);
+  opacity: .7;
 }

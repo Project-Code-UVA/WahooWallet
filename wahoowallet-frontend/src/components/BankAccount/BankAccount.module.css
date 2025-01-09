@@ -207,7 +207,7 @@
 
 .transactionDate {
     font-size: 14px;
-    color: white;
+    color: var(--color-text);
     font-weight: 400;
     margin-top: auto;
 }

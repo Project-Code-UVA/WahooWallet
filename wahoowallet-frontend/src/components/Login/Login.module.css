@@ -61,7 +61,7 @@
     margin-block-end: 20px;
     border: none;
     border-radius: 20px;
-    background-color: #6D85FF;
+    background-color: var(--secondary-color);
     color: var(--dim-color-text);
     transition: transform 0.3s ease-in-out; 
 }
@@ -73,7 +73,7 @@
 .button {
     border-radius: 20px;
     border: none;
-    background-color: #494EDA;
+    background-color: var(--dim-primary-color);
     font-size: 20px;
     height: 42px;
     width: 90px;

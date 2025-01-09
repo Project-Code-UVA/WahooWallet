@@ -37,7 +37,7 @@
 }
 
 .button:hover {
-  background-color: #5b75db; /* Slightly darker hover effect */
+  background-color: var(--dim-secondary-color); /* Slightly darker hover effect */
   transform: scale(1.02); /* Subtle zoom effect */
 }
 

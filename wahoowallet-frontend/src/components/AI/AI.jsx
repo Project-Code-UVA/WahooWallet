@@ -74,13 +74,13 @@ export default function AI() {
 
   return (
     <>
-      <div id='messages' className={style.messagesContainer}>
+      <div className={style.messagesContainer}>
         {renderMessages()}
         <div ref={endMessageRef} />
       </div>
       <form onSubmit={handleMessageSend} className={style.messageContainer}>
         <div className={style.inputBoxContainer}>
-          <input maxLength={MAX_TEXT_LIMIT} value={inputMessage} onChange={(e) => handleMessageUpdate(e)} className={style.messageInput} placeholder='Ask a question'/>
+          <input maxLength={MAX_TEXT_LIMIT} value={inputMessage} onChange={handleMessageUpdate} className={style.messageInput} placeholder='Ask a question' />
           <p className={`${style.textLimitText} ${messageLength >= MAX_TEXT_LIMIT ? style.textLimitReached : ''}`}>{messageLength}/{MAX_TEXT_LIMIT}</p>
         </div>
         <button type='submit' className={style.sendButton}>Send</button>
