@@ -1,117 +1,76 @@
-/* Root container */
 .root {
     display: flex;
     flex-direction: column;
+    gap: 5px;
     height: 100vh;
 }
 
-/* Header */
-.header {
-    display: flex;
-    align-items: center;
-    height: 10%;
-    background-color: #445DFD;
-}
-
-.titleSegment {
-    margin-left: 39px;
-}
-
-.wahooTitle {
-    color: #DEDCFF;
-    margin: 0;
-    font-size: 36px;
-    font-weight: 700;
-}
-
-/* Main content */
-.mainContent {
+.pageContent {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    gap: 5px;
+    height: 100%;
 }
 
-/* Blurb section */
 .blurpContainer {
     display: flex;
     justify-content: center;
-    width: 54%;
-    height: 100%;
-    color: white;
+    align-items: center;
+    width: 50%;
 }
 
 .blurbText {
-    margin-top: 25%;
     font-weight: 500;
     font-size: 20px;
+    color: var(--color-text);
 }
 
-/* Login section */
-.loginContainer {
+.sideContainer {
+    background-color: var(--primary-color);
+    width: 50%;
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
-    flex: 1;
-    background-color: #445DFD;
-    padding-top: 8em;
+    justify-content: center;
     align-items: center;
 }
 
-.loginTitle {
-    width: 400px;
-    display: flex;
-    align-items: center;
-}
-
-.logIntoWahooWalletText {
+.titleText {
     font-weight: 700;
-    font-size: 32px;
+    font-size: 28px;
     color: white;
     margin: 0;
     margin-bottom: 20px;
 }
 
-/* Input section */
-.inputSection {
+.form {
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 400px;
 }
 
-.loginTypeText {
-    margin-top: 15px;
-    margin-bottom: 10px;
+.inputTypeText {
+    margin: 5px;
     font-size: 20px;
     font-weight: 500;
-    line-height: 24.42px;
-    text-align: left;
-    color: #DEDCFF;
+    color: var(--color-text);
 }
 
-.loginInputBox {
+.inputBox {
     width: 380px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0;
+    padding: 10px;
+    margin-block-end: 20px;
     border: none;
     border-radius: 20px;
     background-color: #6D85FF;
-    color: #DEDCFF;
+    color: var(--dim-color-text);
+    transition: transform 0.3s ease-in-out; 
 }
 
-/* Signup section */
-.loginSignupSection {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.inputBox:focus {
+    transform: scale(1.05);
 }
 
-.loginSignupButton {
+.button {
     border-radius: 20px;
     border: none;
     background-color: #494EDA;
@@ -119,29 +78,34 @@
     height: 42px;
     width: 90px;
     font-weight: 500;
-    color: #DEDCFF;
+    color: var(--dim-color-text);
     cursor: pointer;
+    align-self: center;
+    transition: transform 0.15s ease-in-out; 
 }
-.loginSignupButton:hover {
+
+.button:hover {
     opacity: 0.7;
-}
-.loginSignupButton:active {
-    opacity: 0.5;
+    transform: scale(1.1);
 }
 
-.dontHaveAccountText {
-    color: #DEDCFF;
-    font-size: 16px;
+.switchContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.switchText {
+    color: var(--color-text);
+    margin: 15px;
+}
+
+.error {
+    display: none;
     margin: 0;
-    font-weight: 700; /* Corrected font-weight (removed px) */
-}
-
-.invalidLogin {
-    color: var(--heading-color-text);
-    font-weight: 22px;
-    opacity: 0;
+    color: var(--dim-color-text);
+    font-weight: 700;
 }
 
 .visible {
-    opacity: 1;
+    display: block;
 }

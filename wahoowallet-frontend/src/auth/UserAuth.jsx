@@ -15,6 +15,18 @@ export const AuthProvider = ({ children }) => {
     })
   };
 
+  const signup = async (data) => {
+    return new Promise((resolve, reject) => {
+
+      // Uses userObj but sets the name to the username on signup
+      const newUserObj = {...userObj, name: data.username};
+      
+      setUser(newUserObj);
+      localStorage.setItem('user', JSON.stringify(newUserObj));
+      resolve();
+    })
+  };
+
   const logout = () => {
     setUser(null);
     localStorage.setItem('user', JSON.stringify(null));
@@ -23,6 +35,7 @@ export const AuthProvider = ({ children }) => {
   const data = useMemo(() => ({
     user,
     login,
+    signup,
     logout
   }), [user]);
   

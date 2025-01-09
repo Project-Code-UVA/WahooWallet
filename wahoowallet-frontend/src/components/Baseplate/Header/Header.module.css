@@ -16,7 +16,7 @@
 }
 
 .wahooTitle {
-  color: var(--heading-color-text);
+  color: var(--dim-color-text);
   margin: 0;
   font-size: 36px;
   font-weight: 700;

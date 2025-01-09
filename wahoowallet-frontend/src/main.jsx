@@ -8,7 +8,6 @@ import ProtectedRoute from './auth/ProtectedRoute.jsx'
 import { AuthProvider } from './auth/UserAuth.jsx';
 
 import Login from './components/Login/Login.jsx'
-import Signup from './components/Signup/Signup.jsx';
 import PageNotFound from './components/PageNotFound/PageNotFound.jsx';
 
 // For demonstration purposes
@@ -63,10 +62,6 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
-  },
-  {
-    path: '/signup',
-    element: <Signup />
   },
   {
     path: '*',
