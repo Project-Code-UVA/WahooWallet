@@ -18,6 +18,7 @@
 }
 
 .messageBox {
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 1.3%;
@@ -32,35 +33,71 @@
   color: var(--color-text);
 }
 
+.messageTime {
+  position: absolute;
+  white-space: nowrap;
+  bottom: -25px;
+  font-size: 10px;
+}
+
 .userMessage {
   align-self: end;
+  right: 0;
 }
 
 .aiMessage {
   align-self: start;
+  left: 0;
 }
 
 .messageContainer {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.inputBoxContainer {
+  position: relative;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 .messageInput {
-  width: 70%;
+  width: 100%;
+  font-size: 16px;
   padding: 15px;
+  padding-right: 75px;
   border: none;
   border-radius: 20px;
   background-color: #6D85FF;
   color: var(--dim-color-text);
   transition: transform 0.3s ease-in-out;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .messageInput::placeholder {
   color: var(--dim-color-text);
+  font-size: 16px;
+}
+
+.textLimitText {
+  position: absolute;
+  display: inline;
+  bottom: 15px;
+  right: 10px;
+  color: var(--dim-color-text);
+  margin: 0;
+  font-size: 12px;
+}
+
+.textLimitReached {
+  color: rgb(130, 50, 50);
 }
 
 .sendButton {
