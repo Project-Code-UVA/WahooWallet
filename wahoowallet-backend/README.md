@@ -16,9 +16,6 @@ source venv/bin/activate --If you have Mac or Linux
 
 Note: the env should be held locally instead of in the repo, so you will have to run that everytime.
 
-For the first time you run it, run this:
-django-admin startproject backend .
-
 then following that, and everytime you want to to start the server:
 python manage.py runserver
 
