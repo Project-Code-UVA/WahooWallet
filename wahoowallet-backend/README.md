@@ -11,8 +11,8 @@ To start, run this:
 python -m venv env
 
 Then run one of these, depending on what OS you are using:
-.\venv\Scripts\activate --If you have windows
-source venv/bin/activate --If you have Mac or Linux
+.\env\Scripts\activate --If you have windows
+source env/bin/activate --If you have Mac or Linux
 
 Note: the env should be held locally instead of in the repo, so you will have to run that everytime.
 
