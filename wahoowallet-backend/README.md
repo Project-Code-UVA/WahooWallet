@@ -22,3 +22,13 @@ python manage.py runserver
 Common Issues:
 If you try running the server, and it says you dont have django installed run this:
 pip install django
+
+Create an admin account:
+type into terminal:
+python manage.py createsuperuser
+
+once created, and the servers running go to: 
+http://127.0.0.1:8000/admin
+and log into using the super user you made
+
+follow the steps, and let me know if you guys do make an admin account
