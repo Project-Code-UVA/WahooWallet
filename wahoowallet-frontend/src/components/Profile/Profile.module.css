@@ -1,14 +1,16 @@
 .items {
     margin-right: 200px;
+    margin-left: 50px;
 }
-.item {
+.item, .grubhubItem {
     color: var(--color-text);
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 40px;
+    margin-top: 45px;
 }
+
 .title {
     color: var(--color-text);
     margin-left: 60px;
@@ -22,6 +24,7 @@
 
 .changeButton {
     margin-top: 29px;
+    margin-right: 50px;
     width: 363px;
     height: 40px;
     flex-shrink: 0;
@@ -36,7 +39,8 @@
 }
 
 ::placeholder {
-    color: var(--color-text);
+    color: var(--secondary-color);
+    padding: 10px;
 }
 .grubhubButton {
     width: 250px;
@@ -52,14 +56,45 @@
     color: var(--color-text);
     margin-top: 90px;
 }
-
+.grubhubButton:hover {
+    background-color: var(--dim-secondary-color); /* Slightly darker hover effect */
+    transform: scale(1.02); /* Subtle zoom effect */
+  }
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+.submitButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit{
+    margin-top: 45px;
 }
 
 .body {
     display: flex;
     flex-direction: row;
+}
+
+.submit {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .items {
+        margin-right: 50px;
+    }
+
+    .changeButton {
+        width: auto;
+    }
 }
