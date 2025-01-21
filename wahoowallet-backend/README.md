@@ -32,3 +32,15 @@ http://127.0.0.1:8000/admin
 and log into using the super user you made
 
 follow the steps, and let me know if you guys do make an admin account
+
+pip install psycopg2-binary
+pip install python-decouple
+make .env file in wahoowallet-backend
+    add this in there:
+        DB_NAME=my_database
+        DB_USER=my_user
+        DB_PASSWORD="Wahoowallet101-"
+        DB_HOST="aws-0-us-west-1.pooler.supabase.com"
+        DB_PORT="6543"
+
+
