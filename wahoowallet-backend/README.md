@@ -33,6 +33,8 @@ and log into using the super user you made
 
 follow the steps, and let me know if you guys do make an admin account
 
+**How to connect to SupaBase DB:**
+
 pip install psycopg2-binary
 pip install python-decouple
 make .env file in wahoowallet-backend
