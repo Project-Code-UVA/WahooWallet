@@ -1,0 +1,28 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundText {
+  color: var(--color-text);
+  font-size: 32px;
+  margin: 0
+}
+
+.btn {
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--primary-color);
+  font-size: 20px;
+  padding: 15px;
+}
+
+.btn:hover {
+  opacity: .7;
+}
