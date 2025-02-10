@@ -2,7 +2,7 @@ import google.generativeai as genai
 import pandas as pd
 
 genai.configure(
-    api_key="AIzaSyAcgb0CfWElPa-855wlWb0Ho8Q99RgBVIw",
+    api_key="placeholder",
 )
 
 
