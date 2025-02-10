@@ -1,91 +1,82 @@
-from openai import OpenAI
+import google.generativeai as genai
 import pandas as pd
-import openpyxl
 
-client = OpenAI()
-completion = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[
-        {"role": "user", "content": "Give me budget recommendations"}
-    ]
+genai.configure(
+    api_key="AIzaSyAcgb0CfWElPa-855wlWb0Ho8Q99RgBVIw",
 )
 
-OpenAI.api_key = "radwan_please_buy_an_api_key"
 
-def load_data(file_path):
-    try:
-        if file_path.endswith('.csv'):
-            data = pd.read_csv(file_path)
-        elif file_path.endswith('.xlsx') or file_path.endswith('.xls'):
-            data = pd.read_excel(file_path, engine='openpyxl') 
-        else:
-            raise ValueError("Unsupported file format. Please use .csv or .xlsx.")
-        return data
-    except Exception as e:
-            (f"Something went wrong while loading the data: {e}")
-            return None
+def load_data():
+    data = [
+        {"Category": "Groceries", "Budget ($)": 500, "Amount Spent ($)": 450},
+        {"Category": "Rent", "Budget ($)": 1200, "Amount Spent ($)": 1200},
+        {"Category": "Utilities", "Budget ($)": 150, "Amount Spent ($)": 130},
+        {"Category": "Entertainment", "Budget ($)": 200, "Amount Spent ($)": 275},
+    ]
+    
+    return pd.DataFrame(data)
     
 def get_findings(data):
-     
-     total_income = data[data['category'] == 'income']['amount'].sum()
-     total_expenses = data[data['category'] == 'expenses']['amount'].sum()
-     savings = total_income - total_expenses
+    data["Difference ($)"] = data["Budget ($)"] - data["Amount Spent ($)"]
+    data["Percent of Budget Used"] = (data["Amount Spent ($)"] / data["Budget ($)"]) * 100
 
-     categorical_spending = (
-        data[data['category'] == 'expenses']
-        .groupby('subcategory')['amount']
-        .sum()
-        .sort_values()
-     )
+    # identify top overspending categories
+    overspending = data[data["Difference ($)"] < 0].nlargest(3, "Percent of Budget Used")
 
-     summary = {
-          "total income ": total_income,
-          "total expenses ": total_expenses,
-          "savings": savings,
-          "top_categories": categorical_spending.head(3).to_dict()
-     }
-     return summary
+    summary = {
+        "categories": data.to_dict(orient="records"),  
+        "top_overspending": overspending.to_dict(orient="records"),  
+    }
+    return summary
 
-def create_prompt(summary):
-    prompt = (
-        f"Here is a summary of your financial data:\n"
-        f"- Total Income: ${summary['total_income']:.2f}\n"
-        f"- Total Expenses: ${summary['total_expenses']:.2f}\n"
-        f"- Savings: ${summary['savings']:.2f}\n"
-        f"- Top Spending Categories:\n"
-    )
-    for category, amount in summary['top_categories'].items():
-        prompt += f"  * {category}: ${amount:.2f}\n"
 
-    prompt += (
-        "\nBased on this information, what recommendations do you have for improving my budgeting? "
-        "Allow me to ask follow-up questions about my financial situation."
-    )
-    
-    return prompt   
+def create_prompt(summary, user_input):
+    prompt = "You are an AI budget assistant for WahooWallet, a University of Virginia app designed to let college students budget their finances.\n"
+    prompt += "Here is a user's category-wise budget breakdown:\n"
 
-def query_chatgpt(prompt):
-    try:
-        response = OpenAI.ChatCompletion.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are a financial advisor for an app called WahooWallet."},
-                {"role": "user", "content": prompt},
-            ],
+    for category in summary["categories"]:
+        prompt += (
+            f"- {category['Category']}: Budget ${category['Budget ($)']:.2f}, "
+            f"Spent ${category['Amount Spent ($)']:.2f} "
+            f"({category['Percent of Budget Used']:.2f}% used)\n"
         )
-        return response['choices'][0]['message']['content']
+
+    if summary["top_overspending"]:
+        prompt += "\nThe user has overspent in these categories:\n"
+        for category in summary["top_overspending"]:
+            prompt += f"- {category['Category']}: Over by ${abs(category['Difference ($)']):.2f}\n"
+
+    prompt += "\nBased on this, answer the following question from a WahooWallet user. Remember your role as a financial advisor, and feel free to dismiss questions that are irrelevant."
+    prompt += "\nKeep in mind that you are speaking directly to the user.\n"
+
+    prompt += user_input
+    
+    return prompt
+
+
+
+def query_ai(prompt):
+    try:
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        response = model.generate_content(prompt)
+        return response.text
     except Exception as e:
-        print(f"Error querying ChatGPT: {e}")
+        print(f"Error: {e}")
         return None
 
+
 def main():
-    file_path = "transactions.csv"  # replace with path to dataset eventually
-    data = load_data(file_path)
+    data = load_data()
+
+    user_input = input("Enter a question to ask the AI:\n")
     
     if data is not None:
         summary = get_findings(data)
-        prompt = create_prompt(summary)
+        prompt = create_prompt(summary, user_input)
         print("Generated Prompt:\n", prompt)
         
-        chatgpt_response = query_chatgpt(prompt)
-        print("\nChatGPT's Recommendations:\n", chatgpt_response)
+        chatgpt_response = query_ai(prompt)
+        print("\nAI's Recommendations:\n", chatgpt_response)
+
+if __name__ == "__main__":
+    main()
