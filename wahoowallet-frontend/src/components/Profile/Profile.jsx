@@ -1,36 +1,74 @@
-import style from './Profile.module.css'
-import { useState } from 'react'
-import { getImageUrl } from '../../utils'
+import style from "./Profile.module.css"
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { getImageUrl } from '../../utils';
+
 export default function Profile() {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [email, setEmail] = useState("")
-  const [mealExchanges, setMealExchanges] = useState("")
-  const [flexDollars, setFlexDollars] = useState("")
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [mealExchanges, setMealExchanges] = useState("");
+  const [flexDollars, setFlexDollars] = useState("");
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    axios.get('/api/users/')
+      .then(res => {
+        if (res.data.length > 0) {
+          const userData = res.data[0];
+          setUsername(userData.username);
+          setEmail(userData.email);
+          setUserId(userData.user_id);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   function handleUsernameChange() {
-    const username = document.getElementById('usernameInput').value
-    setUsername(username)
+    const newUsername = document.getElementById('usernameInput').value;
+    axios.patch(`placeholder`, { username: newUsername })
+      .then(res => {
+        setUsername(res.data.username);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
+
   function handlePasswordChange() {
-    const password = document.getElementById('passwordInput').value
-    setPassword(password)
+    const newPassword = document.getElementById('passwordInput').value;
+    axios.patch(`placeholder`, { password_hash: newPassword })
+      .then(res => {
+        setPassword(res.data.password_hash);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
+
   function handleEmailChange() {
-    const email = document.getElementById('emailInput').value
-    setEmail(email)
+    const newEmail = document.getElementById('emailInput').value;
+    axios.patch(`placeholder`, { email: newEmail })
+      .then(res => {
+        setEmail(res.data.email);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   function connectGrubhub() {
-    const mealExchanges = document.getElementById('mealExchanges')
-    mealExchanges.style.display = 'block'
-    const flexDollars  = document.getElementById('flexDollars')
-    flexDollars.style.display = 'block'
+    const mealExchanges = document.getElementById('mealExchanges');
+    mealExchanges.style.display = 'block';
+    const flexDollars = document.getElementById('flexDollars');
+    flexDollars.style.display = 'block';
 
-    setMealExchanges("100")
-    setFlexDollars("$300")
-
+    setMealExchanges("100");
+    setFlexDollars("$300");
   }
+
   return (
     <>
       <h1 className = {style.title}> User Profile </h1>
