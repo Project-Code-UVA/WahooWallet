@@ -21,6 +21,26 @@ export default function Login() {
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
 
+// ADDED FOR DJANGO:
+    // Example fetch call to a Django login endpoint, then continuing your existing login flow
+    try {
+      const response = await fetch('/api/django_login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'X-CSRFToken': '{{ csrf_token }}', // if CSRF is enabled
+        },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await response.json();
+      console.log('Django login response:', data);
+      // You might do more checks on `data` here. E.g.:
+      // if (!data.success) throw new Error(data.error || 'Login failed');
+    } catch (err) {
+      error('Error contacting the Django server: ' + err);
+    }
+    // END ADDED FOR DJANGO
+
     await login({ username: username, password: password })
     .then(() => navigate('/bank'))
     .catch(reason => error(reason));
@@ -32,6 +52,26 @@ export default function Login() {
     const username = document.getElementById('signupUsername').value;
     const password = document.getElementById('signupPassword').value;
     const email = document.getElementById('signupEmail').value;
+
+// ADDED FOR DJANGO:
+    // Example fetch call to a Django signup (registration) endpoint, then continuing your existing signup flow
+    try {
+      const response = await fetch('/api/django_signup/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'X-CSRFToken': '{{ csrf_token }}', // if CSRF is enabled
+        },
+        body: JSON.stringify({ username, password, email })
+      });
+      const data = await response.json();
+      console.log('Django signup response:', data);
+      // If data indicates success, you could do something here
+      // if (!data.success) throw new Error(data.error || 'Signup failed');
+    } catch (err) {
+      error('Error contacting the Django server: ' + err);
+    }
+    // END ADDED FOR DJANGO
 
     await signup({ username: username, password: password, email: email })
     .then(() => navigate('/bank'))

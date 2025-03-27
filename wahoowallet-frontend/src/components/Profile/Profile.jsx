@@ -11,14 +11,64 @@ export default function Profile() {
   function handleUsernameChange() {
     const username = document.getElementById('usernameInput').value
     setUsername(username)
+     // ADDED FOR DJANGO:
+    // Example POST request to update the username on the backend
+    fetch('/api/update_username/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'X-CSRFToken': '{{ csrf_token }}' // If CSRF is enabled
+      },
+      body: JSON.stringify({ username })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('Username updated on server:', data)
+        // Optionally handle success logic, like setting a success message in state
+      })
+      .catch(err => console.error('Error updating username:', err))
+    // END ADDED FOR DJANGO
   }
   function handlePasswordChange() {
     const password = document.getElementById('passwordInput').value
     setPassword(password)
+// ADDED FOR DJANGO:
+    // Example POST request to update the password on the backend
+    fetch('/api/update_password/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'X-CSRFToken': '{{ csrf_token }}'
+      },
+      body: JSON.stringify({ password })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('Password updated on server:', data)
+      })
+      .catch(err => console.error('Error updating password:', err))
+    // END ADDED FOR DJANGO
   }
+
   function handleEmailChange() {
     const email = document.getElementById('emailInput').value
     setEmail(email)
+    // ADDED FOR DJANGO:
+    // Example POST request to update the email on the backend
+    fetch('/api/update_email/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'X-CSRFToken': '{{ csrf_token }}'
+      },
+      body: JSON.stringify({ email })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('Email updated on server:', data)
+      })
+      .catch(err => console.error('Error updating email:', err))
+    // END ADDED FOR DJANGO
   }
 
   function connectGrubhub() {
@@ -29,6 +79,22 @@ export default function Profile() {
 
     setMealExchanges("100")
     setFlexDollars("$300")
+    // ADDED FOR DJANGO:
+    // Example POST request to link the user's account with GrubHub
+    fetch('/api/connect_grubhub/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'X-CSRFToken': '{{ csrf_token }}'
+      },
+      body: JSON.stringify({ connected: true })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('GrubHub connected:', data)
+      })
+      .catch(err => console.error('Error connecting to GrubHub:', err))
+    // END ADDED FOR DJANGO
 
   }
   return (

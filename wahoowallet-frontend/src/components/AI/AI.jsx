@@ -52,6 +52,25 @@ export default function AI() {
       newMessage('AI response or something', 'ai');
     }
 
+    // ADDED FOR DJANGO: fetch from your Django endpoint using the user’s last message
+    const userMessage = messages[messages.length - 1].content;
+    fetch('/api/get_ai_response/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt: userMessage })
+    })
+    .then(response => response.json())
+    .then(data => {
+      newMessage(data.response, 'ai');
+    })
+    .catch(error => {
+      console.error('Error fetching AI response:', error);
+      newMessage('Something went wrong. Please try again later.', 'ai');
+    });
+    // END ADDED FOR DJANGO
+  
     const mappedMessages = messages.map((message, index) => {
       const messageStyle = message.sender === 'user' ? style.userMessage : style.aiMessage;
       

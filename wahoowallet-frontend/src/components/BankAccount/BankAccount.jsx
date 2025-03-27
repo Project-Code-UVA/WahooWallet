@@ -8,6 +8,56 @@ function BankAccountPage() {
     const [selectedAccount, setSelectedAccount] = useState(null);
     const [showAllTransactions, setShowAllTransactions] = useState(false);
 
+    // ADDED FOR DJANGO:
+  // Example function to POST and create a new bank account on the server
+  const handleAddAccount = () => {
+    fetch('/api/add_account/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'X-CSRFToken': '{{ csrf_token }}' // if CSRF is enabled on your Django site
+      },
+      body: JSON.stringify({
+        // Provide any data your endpoint needs. Example:
+        accountName: 'New Account',
+        initialBalance: 0
+      })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log('Account added:', data);
+        // Optionally update your local user/accounts state if desired
+      })
+      .catch((err) => {
+        console.error('Error adding account:', err);
+      });
+  };
+
+  // ADDED FOR DJANGO:
+  // Example function to update a transaction category on the server
+  const handleCategoryChange = (transactionId, newCategory) => {
+    fetch('/api/update_transaction_category/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'X-CSRFToken': '{{ csrf_token }}' // if CSRF is enabled on your Django site
+      },
+      body: JSON.stringify({
+        transactionId,
+        newCategory
+      })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log('Transaction category updated:', data);
+        // If desired, update local state to reflect the new category
+      })
+      .catch((err) => {
+        console.error('Error updating transaction category:', err);
+      });
+  };
+  // END ADDED FOR DJANGO
+
     // Function to handle selecting an account
     const handleAccountClick = (account) => {
         setSelectedAccount(account);
