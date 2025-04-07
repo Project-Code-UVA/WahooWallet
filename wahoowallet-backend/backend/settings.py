@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-na%i529)n%hdb4jfrm2hpy@d_!hl_%)cqcj2!h6*mfn&sgw(qw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://wahoo-wallet.onrender.com']
+ALLOWED_HOSTS = ['https://wahoowallet.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://wahoo-wallet.onrender.com'
+    'https://wahoowallet.onrender.com'
 ]
 
 
