@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-na%i529)n%hdb4jfrm2hpy@d_!hl_%)cqcj2!h6*mfn&sgw(qw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://wahoo-wallet.onrender.com']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://wahoo-wallet.onrender.com'
+]
 
 
 # Application definition
