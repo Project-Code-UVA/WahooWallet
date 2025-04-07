@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from wahoowallet.views import get_ai_response, add_account, update_transaction_category, django_login, django_signup, update_username, update_password, update_email, connect_grubhub
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Wahoo Wallet API is running!")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
