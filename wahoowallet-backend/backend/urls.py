@@ -24,6 +24,7 @@ def home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
     path('api/get_ai_response/', get_ai_response, name='get_ai_response'),
     path('api/add_account/', add_account, name='add_account'),
     path('api/update_transaction_category/', update_transaction_category, name='update_transaction_category'),

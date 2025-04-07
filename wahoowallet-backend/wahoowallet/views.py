@@ -3,6 +3,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
+def home(request):
+    return JsonResponse({"message": "Welcome to WahooWallet!"})
+
 @csrf_exempt
 def get_ai_response(request):
     if request.method == 'POST':
