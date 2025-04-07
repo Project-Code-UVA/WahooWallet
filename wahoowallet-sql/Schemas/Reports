@@ -1,0 +1,22 @@
+-- Table: public.Reports
+
+-- DROP TABLE IF EXISTS public."Reports";
+
+CREATE TABLE IF NOT EXISTS public."Reports"
+(
+    report_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    user_id integer,
+    report_type character varying(50) COLLATE pg_catalog."default",
+    generated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    report_data jsonb,
+    CONSTRAINT "Reports_pkey" PRIMARY KEY (report_id),
+    CONSTRAINT report_user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES public."Users" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE RESTRICT
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Reports"
+    OWNER to postgres;

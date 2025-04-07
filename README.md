@@ -10,7 +10,7 @@ WahooWallet will be a web application to help students manage and track their fi
 
 ## **To-dos***
 
-- [When2Meet](https://www.when2meet.com/?26921673-kNVHc): Please fill out the When2Meet to schedule our next meeting.
+- [When2Meet](https://www.when2meet.com/?28676340-G91dD): Please fill out the When2Meet to schedule our next meeting.
   
 - [Discord](https://discord.gg/gxw9RgBbqZ): If you haven’t yet, join our Discord channel for team communication. Regular updates will be posted on the WahooWallet subchannel. If you can’t access it, let me know via [email](vef9rj@virginia.edu) or ping me on Discord.
 

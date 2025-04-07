@@ -1,0 +1,38 @@
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  height: 12%;
+  background-color: var(--primary-color);
+  min-height: 12%;
+}
+
+.titleSegment {
+  padding: 0 30px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.wahooTitle {
+  color: var(--dim-color-text);
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.signoutButton {
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: var(--color-text);
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.signoutButton:hover {
+  opacity: 0.6;
+  border-color: var(--color-text);
+  transform: scale(1.02);
+}

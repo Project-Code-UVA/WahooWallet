@@ -1,0 +1,23 @@
+-- Table: public.Transactions
+
+-- DROP TABLE IF EXISTS public."Transactions";
+
+CREATE TABLE IF NOT EXISTS public."Transactions"
+(
+    transaction_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    user_id integer,
+    category character varying(50) COLLATE pg_catalog."default",
+    description text COLLATE pg_catalog."default",
+    amount numeric(10,2) NOT NULL,
+    transaction_date timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Transactions_pkey" PRIMARY KEY (transaction_id),
+    CONSTRAINT user_id FOREIGN KEY (user_id)
+        REFERENCES public."Users" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE RESTRICT
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Transactions"
+    OWNER to postgres;

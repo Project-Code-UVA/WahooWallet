@@ -1,0 +1,21 @@
+-- Table: public.Users
+
+-- DROP TABLE IF EXISTS public."Users";
+
+CREATE TABLE IF NOT EXISTS public."Users"
+(
+    user_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    password_hash character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Testing_pkey" PRIMARY KEY (user_id),
+    CONSTRAINT email UNIQUE (email),
+    CONSTRAINT username UNIQUE (username)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Users"
+    OWNER to postgres;
